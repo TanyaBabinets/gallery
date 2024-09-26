@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "projects": {
+    "gallery": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/gallery",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "tsconfig.json",
+            "assets": [
+              "src/assets"
+            ],
+            "aot": true
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gallery:build"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "4dbc3341-ff7b-41bc-9157-18f27942ada2"
+  }
+}

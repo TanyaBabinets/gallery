@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class LogService {\n  write(logMessage) {\n    console.log(logMessage);\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

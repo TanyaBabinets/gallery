@@ -1,0 +1,54 @@
+<html>
+
+<body>
+    <div class="start-page">
+        <header *ngIf="section===null">
+            <h1>Our Small Gallery</h1>
+            <h2>Картинная галерея</h2>
+        </header>
+        <div class="btns" *ngIf="section===null">
+            <button (click)="showSection('paints')">Войти в галерею</button>
+
+        </div>
+    </div>
+    <!-- Картинка/показывается только на стартовой стр -->
+    <div *ngIf="section===null" class="woman">
+        <img src="../assets/woman1.jpg" alt="woman">
+        <!-- <img src="../assets/woman2.jpg" alt="win">
+    <img src="../assets/woman3.jpg" alt="win"> -->
+    </div>
+
+    <div *ngIf="!isSelected&&section==='paints'" class="gallery-block">
+        <div class="gallery">
+            <div *ngFor="let image of images" class="pics" (click)="onImageClick(image)">
+                <img [src]="image.img" [alt]="image.name" class="pic">
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="selected" class="selected">
+        <div class="big">
+            <div class="details">
+                <h2>{{selected.name}}</h2>
+                <p>Автор: {{selected.author}}</p>
+                <p>Год: {{selected.year}}</p>
+                <p>Музей: {{selected.location}}</p>
+                <button (click)="toggleDet()">{{ showdetails ? 'скрыть описание' : 'ДЕТАЛИ' }}
+                </button>
+                <button (click)="close()">ЗАКРЫТЬ</button>
+            </div>
+
+            <div class="image-container">
+                <img [src]="selected.img" [alt]="selected.name" class="selected-pic">
+
+            </div>
+        </div>
+
+        <div *ngIf="showdetails" class="showdescr">
+            <p class="descr">{{selected.descr}}</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

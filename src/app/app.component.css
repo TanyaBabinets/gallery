@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+html {
+    height: auto;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(233, 219, 193);
+    color: brown;
+
+
+}
+
+.start-page {
+
+    height: 100%;
+    flex-grow: 1;
+}
+
+.start-page h1 {
+    font-family: "Style Script", cursive;
+    font-size: 60px;
+
+}
+
+.start-page h2 {
+    font-family: "Style Script", cursive;
+    font-size: 40px;
+}
+
+/* Миниатюры  */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-width: 820px;
+    max-height: 360px;
+    display: flex;
+    border: 4px double rgb(128, 122, 7);
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.gallery-block {
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.pics {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.pics:hover {
+    transform: scale(1.1);
+}
+
+.pic {
+
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+
+}
+
+.descr {
+    width: 1000px;
+    display: flex;
+    background-color: rgb(233, 219, 193);
+}
+
+button {
+    width: 180px;
+    height: 40px;
+    background-color: rgb(168, 110, 10);
+    border-radius: 10px;
+    color: brown;
+    margin-top: 30px;
+    margin-left: 25px;
+    align-items: center;
+    border: none;
+    outline: none;
+    box-shadow: 0px 4px 8px rgba(109, 81, 5, 0.3);
+    background-color: rgb(233, 219, 193);
+}
+
+button:hover {
+    box-shadow: 0px 8px 16px rgba(237, 174, 28, 0.3);
+}
+
+
+.selected {
+    max-width: 900px;
+    max-height: 600px;
+    display: flex;
+    padding: 20px;
+    z-index: 100;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+    flex-grow: 1;
+    align-items: stretch;
+}
+
+.big {
+    display: flex;
+    align-items: stretch;
+    width: 900px;
+
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+}
+
+.selected-pic {
+    max-width: 100%;
+    max-height: 600px;
+    margin-bottom: 20px;
+}
+
+.details h2 {
+    font-family: "Pacifico", cursive;
+
+}
+
+.details {
+    padding: 30px;
+    width: 400px;
+    display: flex;
+    background-color: rgb(233, 219, 193);
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: bold;
+}
+
+.selected h2 {
+    margin-bottom: 10px;
+}
+
+.start-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.start-page h1 {
+    margin-bottom: 40px;
+
+}
+
+.woman {
+    margin-right: 40px;
+    border: 4px double rgb(128, 122, 7);
+    border-radius: 10px;
+    padding: 10px;
+}
