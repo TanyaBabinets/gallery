@@ -1,16 +1,16 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { NgFor, NgIf } from "@angular/common";
-import { DataService } from './data.service';
-import { LogService } from './log.service';
+import { HttpService } from './http.service';
 import { Image } from './image';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
     selector: 'my-app',
     standalone: true,
-    imports: [FormsModule, NgFor, NgIf],
-    providers: [DataService, LogService],
+    imports: [FormsModule, HttpClientModule, NgFor, NgIf],
+    providers: [HttpService],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 
@@ -20,27 +20,36 @@ export class AppComponent implements OnInit {
     images: Image[] = [];
     selected: Image | null = null;//если изображение еще не выбрано, чтоб не было ошибки
     showdetails: boolean = false;
-
-    constructor(private dataService: DataService) { }
-   
-    
+    error: any;
+    constructor(private httpService: HttpService) { }
     ngOnInit() {
-        this.images = this.dataService.getData();
+        this.httpService.getData().subscribe(
+            {
+               
+                next: (data: Image[]) => {
+                    this.images = data["imgList"];
+                    console.log('Data received:', this.images);
+                },
+                error: (err) => {
+                    console.error('Error occurred:', err);
+                }
+
+            });
     }
-    
+
     isSelected: boolean = false;
     onImageClick(image: Image) {
         this.selected = image;
         this.showdetails = false;
-        this.isSelected = true; 
+        this.isSelected = true;
     }
-    showSection(sec: string): void{
+    showSection(sec: string): void {
         this.section = sec;//выбор секции - галерея
     }
-    toggleDet() { 
+    toggleDet() {
         this.showdetails = !this.showdetails;
     }
-    close() { 
+    close() {
         this.selected = null;//close image
         this.isSelected = false;
     }

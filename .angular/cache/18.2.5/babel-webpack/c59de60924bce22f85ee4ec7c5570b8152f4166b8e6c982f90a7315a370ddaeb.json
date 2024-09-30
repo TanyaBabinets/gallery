@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { bootstrapApplication } from \"@angular/platform-browser\";\nimport { AppComponent } from \"./app/app.component\";\nbootstrapApplication(AppComponent).catch(e => console.error(e));\n// Этот код запускает приложение в виде ранее определенного компонента AppComponent","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
